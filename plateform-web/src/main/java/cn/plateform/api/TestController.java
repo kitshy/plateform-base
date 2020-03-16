@@ -1,4 +1,5 @@
 package cn.plateform.api;
+import cn.plateform.TestService;
 import cn.plateform.pub.aop.AccessPurview;
 import cn.plateform.pub.aop.LogPurview;
 import cn.plateform.pub.redis.RedisClient;
@@ -17,6 +18,8 @@ public class TestController {
 
     @Autowired
     private RedisClient redisClient;
+    @Autowired
+    private TestService testService;
 
     @RequestMapping(value = "test")
     @LogPurview
@@ -36,18 +39,19 @@ public class TestController {
     }
 
 
-    @LogPurview
+//    @LogPurview
     @RequestMapping(value = "puss")
     public String pubss(){
-         try {
              int i = 1/0;
-         }catch (Exception e){
-             e.printStackTrace();
-         }
+
          return "123456";
     }
 
+    @LogPurview
+    @RequestMapping(value = "pusss")
     public DefaultBackMessage pubs(){
+
+//        testService.Test();
         DefaultBackMessage message = DefaultBackMessage.success("成功");
         return message;
     }

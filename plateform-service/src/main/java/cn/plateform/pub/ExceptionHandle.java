@@ -17,7 +17,7 @@ public class ExceptionHandle {
         return DefaultBackMessage.fail(ErrorCodeEnum.SERVICE_EERROR.getCode(),ErrorCodeEnum.SERVICE_EERROR.getMessage());
     }
 
-    //登陆权限
+    //登陆权限          t
     @ExceptionHandler(LoginException.class)
     public DefaultBackMessage handlerLoginException(LoginException e){
         return DefaultBackMessage.fail(ErrorCodeEnum.NO_ACCESS.getCode(),ErrorCodeEnum.NO_ACCESS.getMessage());
@@ -33,5 +33,10 @@ public class ExceptionHandle {
     @ExceptionHandler(ReturnException.class)
     public DefaultBackMessage handlerReturn(ReturnException e){
         return DefaultBackMessage.fail(e.getCode(),e.getMessage()) ;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public DefaultBackMessage ha(Exception e){
+        return DefaultBackMessage.fail("");
     }
 }

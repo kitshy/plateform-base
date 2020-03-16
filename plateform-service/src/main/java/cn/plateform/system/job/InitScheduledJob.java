@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-@DisallowConcurrentExecution  //todo --注意此注解。。
+@DisallowConcurrentExecution  //todo --注意此注解。。 告诉Quartz不要并发地执行同一个job定义（这里指特定的job类）的多个实例。
 public class InitScheduledJob extends AbstractJob {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {

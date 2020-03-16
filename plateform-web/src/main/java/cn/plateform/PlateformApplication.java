@@ -26,6 +26,10 @@ public class PlateformApplication implements InitializingBean,ApplicationRunner 
 
     @Override
     public void afterPropertiesSet() throws Exception {
+//           this.InitQuerezt();
+    }
+
+    public void InitQuerezt(){
         Util.delayRun(new Runnable() {
             @Override
             public void run() {

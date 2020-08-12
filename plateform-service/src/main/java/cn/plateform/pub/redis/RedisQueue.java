@@ -49,8 +49,9 @@ public class RedisQueue<T> extends AbstractQueue<T> {
             T t = (T) redisTemplate.opsForList().leftPop(queueName);
             return t;
         }
-        else
+        else{
             return null;
+        }
     }
 
     public T pop()
@@ -66,8 +67,9 @@ public class RedisQueue<T> extends AbstractQueue<T> {
 //                redisTemplate.opsForList().leftPush(queueName,t);
             return t;
         }
-        else
+        else{
             return null;
+        }
     }
 
     public List<T> toList()
@@ -75,8 +77,9 @@ public class RedisQueue<T> extends AbstractQueue<T> {
         if(this.size()>0) {
             return redisTemplate.opsForList().range(queueName, 0, this.size()-1);
         }
-        else
+        else{
             return new ArrayList<>();
+        }
     }
 
 

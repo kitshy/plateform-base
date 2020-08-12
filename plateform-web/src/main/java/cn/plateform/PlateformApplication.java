@@ -14,9 +14,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableTransactionManagement
-@EnableAsync 
-@EnableRetry
+@EnableTransactionManagement //事务
+@EnableAsync  //异步调用
+@EnableRetry //重试机制
 @Slf4j
 public class PlateformApplication implements InitializingBean,ApplicationRunner {
 

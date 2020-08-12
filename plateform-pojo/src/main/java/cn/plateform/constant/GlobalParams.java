@@ -1,6 +1,6 @@
 package cn.plateform.constant;
 
-public interface StatusConstant {
+public class GlobalParams {
 
     //没有权限
     public static final Integer NO_ACCESS=401;

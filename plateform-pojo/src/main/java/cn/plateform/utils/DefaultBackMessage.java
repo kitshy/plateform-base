@@ -11,7 +11,7 @@ public class DefaultBackMessage<T> implements Serializable {
     private int code;
     private String msg;
     private T data;
-    private int total;
+    private long total;
 
     public static <T> DefaultBackMessage success(String msg){
         return new DefaultBackMessage(true,200,msg);
@@ -22,10 +22,10 @@ public class DefaultBackMessage<T> implements Serializable {
     public static <T> DefaultBackMessage success(String msg,T data){
         return new DefaultBackMessage(true,200,msg,data);
     }
-    public static <T> DefaultBackMessage success(T data,int total){
+    public static <T> DefaultBackMessage success(T data,long total){
         return new DefaultBackMessage(true,200,data,total);
     }
-    public  static <T> DefaultBackMessage success(String msg,T data,int total){
+    public  static <T> DefaultBackMessage success(String msg,T data,long total){
         return new DefaultBackMessage(true,200,msg,data,total);
     }
     public static <T> DefaultBackMessage success(int code,String msg){
@@ -37,10 +37,10 @@ public class DefaultBackMessage<T> implements Serializable {
     public static <T> DefaultBackMessage success(int code,String msg,T data){
         return new DefaultBackMessage(true,code,msg,data);
     }
-    public static <T> DefaultBackMessage success(int code,T data,int total){
+    public static <T> DefaultBackMessage success(int code,T data,long total){
         return new DefaultBackMessage(true,code,data,total);
     }
-    public  static <T> DefaultBackMessage success(int code,String msg,T data,int total){
+    public  static <T> DefaultBackMessage success(int code,String msg,T data,long total){
         return new DefaultBackMessage(true,code,msg,data,total);
     }
 
@@ -55,10 +55,10 @@ public class DefaultBackMessage<T> implements Serializable {
     public static <T> DefaultBackMessage fail(String msg,T data){
         return new DefaultBackMessage(false,400,msg,data);
     }
-    public static <T> DefaultBackMessage fail(T data,int total){
+    public static <T> DefaultBackMessage fail(T data,long total){
         return new DefaultBackMessage(false,400,data,total);
     }
-    public  static <T> DefaultBackMessage fail(String msg,T data,int total){
+    public  static <T> DefaultBackMessage fail(String msg,T data,long total){
         return new DefaultBackMessage(false,400,msg,data,total);
     }
     public static <T> DefaultBackMessage fail(int code,String msg){
@@ -70,10 +70,10 @@ public class DefaultBackMessage<T> implements Serializable {
     public static <T> DefaultBackMessage fail(int code,String msg,T data){
         return new DefaultBackMessage(false,code,msg,data);
     }
-    public static <T> DefaultBackMessage fail(int code,T data,int total){
+    public static <T> DefaultBackMessage fail(int code,T data,long total){
         return new DefaultBackMessage(false,code,data,total);
     }
-    public  static <T> DefaultBackMessage fail(int code,String msg,T data,int total){
+    public  static <T> DefaultBackMessage fail(int code,String msg,T data,long total){
         return new DefaultBackMessage(false,code,msg,data,total);
     }
 
@@ -96,13 +96,13 @@ public class DefaultBackMessage<T> implements Serializable {
         this.msg=msg;
         this.data=data;
     }
-    public DefaultBackMessage(boolean success, int code, T data, int total){
+    public DefaultBackMessage(boolean success, int code, T data, long total){
         this.success=success;
         this.code=code;
         this.data=data;
         this.total=total;
     }
-    public DefaultBackMessage(boolean success, int code, String msg, T data, int total){
+    public DefaultBackMessage(boolean success, int code, String msg, T data, long total){
         this.success=success;
         this.code=code;
         this.msg=msg;
@@ -144,11 +144,11 @@ public class DefaultBackMessage<T> implements Serializable {
         this.data = data;
     }
 
-    public int getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(long total) {
         this.total = total;
     }
 }

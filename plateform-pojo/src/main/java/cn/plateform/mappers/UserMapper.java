@@ -1,4 +1,4 @@
-package cn.plateform.dal;
+package cn.plateform.mappers;
 
 import cn.plateform.pojo.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

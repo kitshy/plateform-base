@@ -15,6 +15,7 @@ spring:
         max-idle: 10
         max-wait: 3
         max-active: 10
-mybatis:
-    type-aliases-package: cn.plateform.dal
-    mapper-locations: classpath:mappers/*.xml
+#无需 xml 的sql 就不需要配置
+#mybatis:
+#    type-aliases-package: cn.plateform.mappers
+#    mapper-locations: classpath:mappers/*.xml

@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 public @interface LogPurview {
 
     /**
-     * 是否需要记录日志
+     * 是否需要记录操作日志
      * @return
      */
     boolean log() default false;

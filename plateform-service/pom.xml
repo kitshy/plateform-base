@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.plateform</groupId>
-            <artifactId>plateform-dal</artifactId>
+            <artifactId>plateform-pojo</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

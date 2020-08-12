@@ -47,7 +47,7 @@ public @interface AccessPurview {
     int repeatCheckTime() default 3;
 
     /**
-     * 降级处理级别
+     * 降级处理级别  接口停止访问
      * @return
      */
     int demotionLevel() default 0;

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class InitScheduledJob extends AbstractJob {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        //初始化需要定时的业务，从数据库获取，相关任务组job
+        //初始化需要定时的业务，从数据库获取，相关任务组job          (Class<? extends AbstractJob>) Class.forName(planning.getRunnableClassName()).newInstance().getClass()
           log.info("初始化----------");
     }
 }

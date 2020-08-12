@@ -5,7 +5,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>plateform-service</module>
-        <module>plateform-dal</module>
         <module>plateform-pojo</module>
         <module>plateform-api</module>
         <module>plateform-web</module>
@@ -111,6 +110,12 @@
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>
             <version>3.3.3</version>
+        </dependency>
+        <!--RateLimiter限流依赖包引入-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
         </dependency>
 
     </dependencies>

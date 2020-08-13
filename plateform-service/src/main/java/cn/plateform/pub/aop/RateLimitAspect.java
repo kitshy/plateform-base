@@ -12,6 +12,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
@@ -25,8 +26,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Date: 2020/08/12
  */
 @Aspect
-@Order(0)
+@Order(1)
 @Slf4j
+@Component
 public class RateLimitAspect {
 
     private static ConcurrentHashMap<String,RateLimiter> rateLimiterMap=new ConcurrentHashMap<String,RateLimiter>();

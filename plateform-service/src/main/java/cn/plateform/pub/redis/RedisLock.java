@@ -2,11 +2,12 @@ package cn.plateform.pub.redis;
 
 import cn.plateform.utils.Util;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.math.RandomUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+
+import java.util.Random;
 
 @Component
 @Slf4j
@@ -25,6 +26,7 @@ public class RedisLock {
 
     public boolean lock(String lockName,long expiredTime){
         String key = REDIS_NAME_SPACE + lockName;
+
         String value = System.currentTimeMillis() + "_" + RandomUtils.nextLong();
         boolean lockd = redisClient.setNX(key,value,expiredTime);
         if (lockd){
@@ -36,7 +38,7 @@ public class RedisLock {
         if (expiredAt<System.currentTimeMillis()){
             String expireTimeInRedis = (String) redisClient.getAndSet(key,value);
             //CAS验证，保证其他线程没有抢占到锁
-            if (!StringUtils.equalsIgnoreCase(expireTimeInRedis,oldExpiredString)){
+            if (!oldExpiredString.equalsIgnoreCase(expireTimeInRedis)){
                 return false;
             }
         }
@@ -54,7 +56,7 @@ public class RedisLock {
 
     private long getExpireTime(String expireTimeStr, long expire){
         long expireTime = 0L;
-        if (StringUtils.isNotEmpty(expireTimeStr)){
+        if (!StringUtils.isEmpty(expireTimeStr)){
             try {
                 expireTime = Long.parseLong(expireTimeStr.split("_")[0]) + expire * 1000;
             }catch (NumberFormatException e){

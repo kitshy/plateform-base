@@ -2,11 +2,13 @@ package cn.plateform.api;
 import cn.plateform.TestService;
 import cn.plateform.mappers.UserMapper;
 import cn.plateform.pojo.User;
+import cn.plateform.pub.ErrorCodeEnum;
 import cn.plateform.pub.aop.AccessPurview;
 import cn.plateform.pub.aop.LogPurview;
 import cn.plateform.pub.aop.RateLimit;
 import cn.plateform.pub.redis.RedisClient;
 import cn.plateform.utils.DefaultBackMessage;
+import cn.plateform.utils.Util;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -14,6 +16,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.additional.query.impl.LambdaQueryChainWrapper;
+import com.mchange.v2.lang.ThreadUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,7 +55,7 @@ public class TestController {
 
 
     @RequestMapping(value = "puss")
-    @RateLimit
+    @RateLimit(limitNum = 50)
     public String pubss(String name){
          return name;
     }

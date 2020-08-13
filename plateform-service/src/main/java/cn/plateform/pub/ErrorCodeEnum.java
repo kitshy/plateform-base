@@ -14,7 +14,7 @@ public enum ErrorCodeEnum {
     private String message;
 
 
-    ErrorCodeEnum(Integer code,String message){
+    ErrorCodeEnum(Integer code,String message ){
         this.code=code;
         this.message=message;
     }
@@ -26,4 +26,5 @@ public enum ErrorCodeEnum {
     public String getMessage() {
         return message;
     }
+
 }

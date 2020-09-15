@@ -11,7 +11,7 @@ public class DefaultBackMessage<T> implements Serializable {
     private int code;
     private String msg;
     private T data;
-    private long total;
+    private Long total;
 
     public static <T> DefaultBackMessage success(String msg){
         return new DefaultBackMessage(true,200,msg);
@@ -76,9 +76,6 @@ public class DefaultBackMessage<T> implements Serializable {
     public  static <T> DefaultBackMessage fail(int code,String msg,T data,long total){
         return new DefaultBackMessage(false,code,msg,data,total);
     }
-
-
-
 
     public DefaultBackMessage(boolean success, int code, String msg) {
         this.code = code;

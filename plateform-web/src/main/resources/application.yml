@@ -15,6 +15,8 @@ spring:
         max-idle: 10
         max-wait: 3
         max-active: 10
+server:
+  port: 8080
 #无需 xml 的sql 就不需要配置
 #mybatis:
 #    type-aliases-package: cn.plateform.mappers
